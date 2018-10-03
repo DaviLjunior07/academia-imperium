@@ -103,6 +103,11 @@ class AlunosController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->all());
+        try {
+            $a = Aluno::find($request->id)->update($request->all());
+            return redirect()->back()->with('success', 'Aluno alterado com sucesso!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Não foi possível alterar este aluno: ' . $e->getMessage());
+        }
     }
 }

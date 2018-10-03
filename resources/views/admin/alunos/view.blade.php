@@ -74,6 +74,9 @@
 
                 <form action="{{ route('atualizarAluno') }}" method="post">
                     @csrf
+
+                    <input type="hidden" name="id" value="{{ $aluno->id }}">
+
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item p-3">
                             <div class="row">
@@ -82,24 +85,33 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="feFirstName">Nome completo</label>
-                                                <input type="text" class="form-control" id="feFirstName"
+                                                <input type="text" name="nome" class="form-control" id="feFirstName"
                                                        placeholder="Nome completo do aluno" value="{{ $aluno->nome }}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="feLastName">Nº do Contrato</label>
-                                                <input type="text" class="form-control" id="feLastName"
+                                                <input type="text" name="numero" class="form-control" id="feLastName"
                                                        placeholder="Nº do Contrato" value="{{ $aluno->numero }}"></div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="feEmailAddress">Email</label>
-                                                <input type="email" class="form-control" id="feEmailAddress"
+                                                <input type="email" class="form-control" id="feEmailAddress" name="email"
                                                        placeholder="email" value="{{ $aluno->email }}">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="fePassword">RG</label>
-                                                <input type="text" class="form-control" id="fePassword"
+                                                <input type="text" class="form-control" id="fePassword" name="rg"
                                                        placeholder="RG" value="{{ $aluno->rg }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group col-12">
+                                                <label for="feEstadoCivil">Estado civil</label>
+
+                                                <input type="text" class="form-control" id="feEstadoCivil" name="estadoCivil"
+                                                       placeholder="RG" value="{{ $aluno->estadoCivil }}">
                                             </div>
                                         </div>
 
@@ -111,15 +123,14 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="feCPF">CPF</label>
-                                                <input type="text" class="form-control" id="feCPF"
+                                                <input type="text" class="form-control" id="feCPF" name="cpf"
                                                        placeholder="CPF" value="{{ $aluno->cpf }}">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="feInputAddress">Endereço</label>
-                                            <input type="text" name="endereco" class="form-control" id="feInputAddress"
-                                                   placeholder="{{ $aluno->endereco }}" value="{{ $aluno->endereco }}">
+                                            <input type="text" name="endereco" class="form-control" id="feInputAddress" dirname="endereco" value="{{ $aluno->endereco }}">
                                         </div>
 
                                         <div class="form-row">
@@ -166,7 +177,7 @@
                                             </div>
                                             <div class="form-group col-md-2">
                                                 <label for="inputZip">CEP</label>
-                                                <input type="text" class="form-control" id="inputZip"
+                                                <input type="text" class="form-control" id="inputZip" name="cep"
                                                        value="{{ $aluno->cep }}">
                                             </div>
                                         </div>
@@ -174,7 +185,7 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputComplemento">Complemento</label>
-                                                <input type="text" class="form-control" name="complmento"
+                                                <input type="text" class="form-control" name="complemento"
                                                        id="inputComplemento"
                                                        value="{{ $aluno->complemento }}">
                                             </div>
@@ -187,7 +198,7 @@
 
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <label for="feDescription">Description</label>
+                                                <label for="feDescription">Descrição</label>
                                                 <textarea class="form-control" name="feDescription" rows="5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?</textarea>
                                             </div>
                                         </div>
