@@ -6,7 +6,7 @@
     <title>Administração de academia - Basic Sistema</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="{{ asset('css/fonts/all.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fonts/icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fonts/icon.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/styles/shards-dashboards.1.0.0.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/styles/extras.1.0.0.min.css') }}">

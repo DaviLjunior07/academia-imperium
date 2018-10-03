@@ -1,6 +1,6 @@
 @extends('layouts.admin.home')
 
-@section('alunoActive', 'active')
+@section('alunoActive', '')
 @section('content')
     <!-- Page Header -->
     <div class="page-header row no-gutters py-4">
@@ -43,7 +43,7 @@
                                 @break
 
                                 @case(1)
-                                <b class="text-warnig">
+                                <b class="text-warnings">
                                     <i class="material-icons">brightness_1</i> Inativo
                                 </b>
                                 @break
@@ -58,10 +58,18 @@
                         </div>
                     </li>
                     <li class="list-group-item p-4">
-                        <strong class="text-muted d-block mb-2">Descrição</strong>
-                        <span>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur enim fugit inventore iste mollitia optio, possimus quo recusandae reprehenderit repudiandae tempore unde! Accusamus doloremque ea, maiores minima necessitatibus quisquam repellendus.
-                        </span>
+                        <p>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                    data-target="#contentId" aria-expanded="false"
+                                    aria-controls="contentId">
+                                Mudar situação
+                            </button>
+                        </p>
+                        <div class="collapse" id="contentId">
+                            <a href="{{ route('atualizaSituacao', ['id' => $aluno->id, 'code' => 0]) }}" class="btn btn-sm btn-outline-success mb-1">Ativo</a><br>
+                            <a href="{{ route('atualizaSituacao', ['id' => $aluno->id, 'code' => 1]) }}" class="btn btn-sm btn-outline-warning mb-1">Inativo</a><br>
+                            <a href="{{ route('atualizaSituacao', ['id' => $aluno->id, 'code' => 2]) }}" class="btn btn-sm btn-outline-danger mb-1">Cancelado</a><br>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -130,7 +138,7 @@
 
                                         <div class="form-group">
                                             <label for="feInputAddress">Endereço</label>
-                                            <input type="text" name="endereco" class="form-control" id="feInputAddress" dirname="endereco" value="{{ $aluno->endereco }}">
+                                            <input type="text" name="endereco" class="form-control" id="feInputAddress" value="{{ $aluno->endereco }}">
                                         </div>
 
                                         <div class="form-row">
@@ -199,7 +207,7 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="feDescription">Descrição</label>
-                                                <textarea class="form-control" name="feDescription" rows="5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?</textarea>
+                                                <textarea class="form-control" id="feDescription" rows="5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?</textarea>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-accent">Atualizar dados</button>

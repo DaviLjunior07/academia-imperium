@@ -29,5 +29,6 @@ Route::group(['middleware' => ['auth', 'can:admin'], 'namespace' => 'Admin', 'pr
         Route::get('/ver-aluno/{id}', 'AlunosController@view')->name('verAluno');
 
         Route::post('/atualizar-aluno', 'AlunosController@update')->name('atualizarAluno');
+        Route::get('/atualizar-situacao-aluno/{id}/{code}', 'AlunosController@updateStatus')->name('atualizaSituacao');
     });
 });
